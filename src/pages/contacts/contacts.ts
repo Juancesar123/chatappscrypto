@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Item } from './contacts.model';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs-compat';
+import { map } from 'rxjs/operators';
+
 import { ContactsProvider } from './../../providers/contacts/contacts';
 
 /**
@@ -20,24 +22,34 @@ export class ContactsPage {
 contactlist:Observable<Item[]>
   constructor(public navCtrl: NavController, public navParams: NavParams,private contactlistService:ContactsProvider) {
     this.contactlist = this.contactlistService.getContactlist().snapshotChanges()//db list
-    .map(
+    .pipe(map(
       changes =>{
         return changes.map(c=>({
           key:c.payload.key, ...c.payload.val()
           
         }))
       }
-    )
+    ))
     console.log(this.contactlist);
   }
   item:Item = {
     name:'',
-    phonenumber:'081998190081',
-    gambar:'null'
+    phonenumber:undefined,
+    gambar:undefined
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactsPage');
   }
-  getcontactlis
+  addItem(){
+    let data = {
+      name:'juan',
+      phonenumber:'08101801810',
+      gambar:'nuall'
+    }
+    this.contactlistService.addItem(data).then(ref =>{
+      console.log(ref.key)
+    })
+
+  }
 
 }

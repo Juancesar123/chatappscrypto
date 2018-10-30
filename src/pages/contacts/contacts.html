@@ -14,4 +14,16 @@
   </ion-header>
   
 <ion-content padding>
+    <ion-fab right bottom>
+      <button ion-fab color="danger"><ion-icon name="md-person-add"></ion-icon></button>
+    </ion-fab>  
+  <ion-list>
+      <ion-item *ngFor="let item of contactlist | async">
+        <ion-avatar item-start>
+          <img src="assets/imgs/user.png">
+        </ion-avatar>
+        <h2>{{item.name}}</h2>
+        <p>{{item.phonenumber}}</p>
+      </ion-item>
+    </ion-list>
 </ion-content>

@@ -18,4 +18,7 @@ export class ContactsProvider {
   getContactlist(){
     return this.listcontactRef;
   }
+  addItem(item:Item){
+    return this.listcontactRef.push(item)
+  }
 }
