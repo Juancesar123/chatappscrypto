@@ -11,6 +11,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {AngularFireModule} from 'angularfire2'
 import {AngularFireDatabaseModule} from'angularfire2/database';
 import { FIREBASE_CONFIG } from './firebase.credential';
+import { BroadcastmessagePageModule } from './../pages/broadcastmessage/broadcastmessage.module';
+import { LoginPageModule } from './../pages/login/login.module';
+import { RegisterPageModule } from './../pages/register/register.module';
+import { ListnewchatPageModule } from './../pages/listnewchat/listnewchat.module';
+import { ContactsProvider } from '../providers/contacts/contacts';
+import { ContactsPageModule } from './../pages/contacts/contacts.module';
+import { ContactProvider } from '../providers/contact/contact';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     MyApp,
@@ -21,7 +29,13 @@ import { FIREBASE_CONFIG } from './firebase.credential';
   BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BroadcastmessagePageModule,
+    LoginPageModule,
+    HttpClientModule,
+    ListnewchatPageModule,
+    ContactsPageModule,
+    RegisterPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +46,9 @@ import { FIREBASE_CONFIG } from './firebase.credential';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ContactsProvider,
+    ContactProvider
   ]
 })
 export class AppModule {}

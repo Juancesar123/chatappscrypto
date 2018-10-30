@@ -1,13 +1,20 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar  color="danger">
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
+        <ion-card text-center class="hide-card">
+            <img src="assets/imgs/cap-logo-ideas3.png" class="custom-avatar"/>
+            <h2>Administrator</h2>
+            <p>0819810918819</p>
+            <hr>
+        </ion-card>  
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon item-left [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
     </ion-list>
