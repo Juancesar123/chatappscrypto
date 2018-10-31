@@ -19,6 +19,8 @@ import { ContactsProvider } from '../providers/contacts/contacts';
 import { ContactsPageModule } from './../pages/contacts/contacts.module';
 import { ContactProvider } from '../providers/contact/contact';
 import { HttpClientModule } from '@angular/common/http';
+import { AddcontactPageModule } from './../pages/addcontact/addcontact.module';
+import "hammerjs";
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     ListPage
   ],
   imports: [
-  BrowserModule,
+
+BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
@@ -35,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ListnewchatPageModule,
     ContactsPageModule,
-    RegisterPageModule
+    RegisterPageModule,
+    AddcontactPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -15,10 +15,10 @@
   
 <ion-content padding>
     <ion-fab right bottom>
-      <button ion-fab color="danger"><ion-icon name="md-person-add"></ion-icon></button>
+      <button ion-fab color="danger" (tap)="addcontacts()"><ion-icon name="md-person-add"></ion-icon></button>
     </ion-fab>  
   <ion-list>
-      <ion-item *ngFor="let item of contactlist | async">
+      <ion-item *ngFor="let item of contactlist | async" (tap)="clickable()">
         <ion-avatar item-start>
           <img src="assets/imgs/user.png">
         </ion-avatar>
