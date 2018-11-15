@@ -21,6 +21,9 @@ import { ContactProvider } from '../providers/contact/contact';
 import { HttpClientModule } from '@angular/common/http';
 import { AddcontactPageModule } from './../pages/addcontact/addcontact.module';
 import "hammerjs";
+import { MessagesPageModule } from '../pages/messages/messages.module';
+import { ChatProvider } from '../providers/chat/chat';
+import { EmojiProvider } from '../providers/emoji/emoji';
 @NgModule({
   declarations: [
     MyApp,
@@ -28,8 +31,6 @@ import "hammerjs";
     ListPage
   ],
   imports: [
-
-BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
@@ -39,7 +40,9 @@ BrowserModule,
     ListnewchatPageModule,
     ContactsPageModule,
     RegisterPageModule,
-    AddcontactPageModule
+    AddcontactPageModule,
+    MessagesPageModule,
+    BrowserModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,7 +55,9 @@ BrowserModule,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ContactsProvider,
-    ContactProvider
+    ContactProvider,
+    ChatProvider,
+    EmojiProvider,
   ]
 })
 export class AppModule {}
